@@ -39,3 +39,6 @@ ls -l "$HOME/.config/picom/picom.conf"
 
 ln -sf "$(pwd)/redshift.conf" "$HOME/.config/"
 ls -l "$HOME/.config/redshift.conf"
+
+ln -sf "$(pwd)/ranger/rifle.conf" "$HOME/.config/ranger/"
+ls -l "$HOME/.config/ranger/rifle.conf"
