@@ -42,3 +42,6 @@ ls -l "$HOME/.config/redshift.conf"
 
 ln -sf "$(pwd)/ranger/rifle.conf" "$HOME/.config/ranger/"
 ls -l "$HOME/.config/ranger/rifle.conf"
+
+ln -sf "$(pwd)/rofi/config.rasi" "$HOME/.config/rofi/"
+ls -l "$HOME/.config/rofi/config.rasi"
