@@ -205,6 +205,7 @@ client.background       $bg
 
 # PROTIP: You can also dynamically set dmenu's colors this way:
 #bindsym $mod+d exec dmenu_run 
+#chaged dmenu to rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
 
@@ -255,7 +256,7 @@ bindsym $mod+Shift+F3 exec spotify-launcher
 # discord keybinding
 bindsym $mod+Shift+F4 exec discord
 
-# tipkovnica
+# tipkovnica/keyboard
 exec_always setxkbmap -layout us -option caps:escape
 # turn off the beep
 exec_always xset -b
