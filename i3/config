@@ -258,7 +258,7 @@ bindsym $mod+Shift+F3 exec spotify-launcher
 bindsym $mod+Shift+F4 exec discord
 
 # tipkovnica/keyboard
-exec_always setxkbmap -layout us -option caps:escape
+exec_always setxkbmap -layout us -option caps:escape -option compose:ralt
 # turn off the beep
 exec_always xset -b
 # holding a key is faster
