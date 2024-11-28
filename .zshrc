@@ -122,6 +122,7 @@ alias p="python3"
 alias polybar_start="bash ~/.config/polybar/launch.sh"
 alias update="sudo pacman --noconfirm -Syu"
 alias faks_vpn="sudo openfortivpn -c .openfortivpn/config"
+alias cdnvim="cd ~/.config/nvim/"
 
 export JAVA_HOME=""
 
