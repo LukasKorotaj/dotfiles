@@ -223,7 +223,7 @@ bindsym $mod+Shift+x exec i3lock --image=$HOME/Pictures/thumb-1920-600924.png -t
 
 # background image
 # exec_always bash $HOME/.config/.scripts/background.sh 
-exec_always feh --bg-scale $HOME/dotfiles/wallpapers/wp6744150-anime-city-purple-wallpapers-resize.jpg
+exec_always feh --bg-scale $HOME/dotfiles/wallpapers/SWNdZcsm-resize.jpg.jpg
 
 # monitor setup, koristi autorandr default config file
 exec_always autorandr -l default
