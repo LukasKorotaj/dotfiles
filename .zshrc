@@ -10,7 +10,7 @@ fi
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-PS1="%B%{$fg[green]%}[%{$fg[red]%}%n%{$fg[blue]%}@%{$fg[red]%}%M %{$fg[yellow]%}%~%{$fg[green]%}]%{$reset_color%}$%b "
+PS1="%B%{$fg[green]%}[%{$fg[red]%}%n%{$fg[blue]%}@%{$fg[red]%}%M %{$fg[yellow]%}%(5~|%-1~/…/%3~|%4~)%{$fg[green]%}]%{$reset_color%}$%b "
 
 # PS1="%F{$fg[red]}[%f%B%F{$fg[green]}%n%f%b%F{$fg[blue]}@%f%F{$fg[green]}%m%f %F{$fg[yellow]}%~%f%F{$fg[red]}]%f%F{$fg[green]}$%f "
 RPROMPT="%F{white}%*%f"
