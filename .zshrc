@@ -124,6 +124,7 @@ alias update="sudo pacman --noconfirm -Syu"
 alias faks_vpn="sudo openfortivpn -c .openfortivpn/config"
 alias cdnvim="cd ~/.config/nvim/"
 alias repl="scala-cli repl ."
+alias ta="tmux attach"
 
 
 # function/alias for opening pdf files in default browser
