@@ -123,11 +123,12 @@ alias polybar_start="bash ~/.config/polybar/launch.sh"
 alias update="sudo pacman --noconfirm -Syu"
 alias faks_vpn="sudo openfortivpn -c .openfortivpn/config"
 alias cdnvim="cd ~/.config/nvim/"
+alias repl="scala-cli repl ."
 
-export JAVA_HOME=""
 
 # function/alias for opening pdf files in default browser
 pdf() {
 	nohup xdg-open "$1" & disown
 }
 
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"

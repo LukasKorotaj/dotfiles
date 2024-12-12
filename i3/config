@@ -252,7 +252,7 @@ bindsym $mod+Shift+F2 exec chromium
 #exec_always --no-startup-id wal -nseR
 
 # spotify keybinding
-bindsym $mod+Shift+F3 exec spotify-launcher
+bindsym $mod+Shift+F3 exec spotify
 
 # discord keybinding
 bindsym $mod+Shift+F4 exec discord
