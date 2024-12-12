@@ -48,3 +48,11 @@ ls -l "$HOME/.config/rofi/config.rasi"
 
 ln -sf "$(pwd)/dracula.json" "$HOME/.config/wal/colorschemes/dark/"
 ls -l "$HOME/.config/wal/colorschemes/dark/dracula.json"
+
+for file in $(pwd)/tmux/*; do
+	ln -sf "$file" $HOME/.config/tmux/
+done
+
+for file in $HOME/.config/tmux/*; do
+	ls -l "$file"
+done

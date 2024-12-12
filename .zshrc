@@ -124,7 +124,7 @@ alias update="sudo pacman --noconfirm -Syu"
 alias faks_vpn="sudo openfortivpn -c .openfortivpn/config"
 alias cdnvim="cd ~/.config/nvim/"
 
-export JAVA_HOME=""
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
 
 # function/alias for opening pdf files in default browser
 pdf() {
