@@ -1,1 +1,3 @@
 The font used by neovim and such is a nerdfont called 0xProto Nerd Font.
+
+There is a separate script for installing tpm for tmux make sure to set it as executable.
