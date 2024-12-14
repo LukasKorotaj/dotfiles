@@ -60,6 +60,7 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
+
 lfcd () {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
@@ -125,6 +126,7 @@ alias faks_vpn="sudo openfortivpn -c .openfortivpn/config"
 alias cdnvim="cd ~/.config/nvim/"
 alias repl="scala-cli repl ."
 alias ta="tmux attach"
+alias c="clear"
 
 
 # function/alias for opening pdf files in default browser
