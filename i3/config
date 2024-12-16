@@ -265,10 +265,10 @@ exec_always xset -b
 exec_always xset r rate 200 60
 
 # polybar launch script
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # run wal and then polybar (because this is fucking necessary)
-exec_always --no-startup-id python $HOME/.config/.scripts/launch_pywal_polybar_xrdb.py
+#exec_always --no-startup-id python $HOME/.config/.scripts/launch_pywal_polybar_xrdb.py
 
 # URxvt terminal emulator
 # Switched to alacritty

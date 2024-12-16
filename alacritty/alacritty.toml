@@ -1,3 +1,6 @@
+[general]
+import = ["~/dotfiles/alacritty/dracula.toml"]
+
 [font]
 
 normal.family = "0xProto Nerd Font"
@@ -5,4 +8,9 @@ bold.family = "0xProto Nerd Font"
 italic.family = "0xProto Nerd Font"
 bold_italic.family = "0xProto Nerd Font"
 
-#Test 
+[keyboard]
+
+bindings = [
+   { key = "Return", mods = "Super|Shift", action = "SpawnNewInstance" }
+]
+

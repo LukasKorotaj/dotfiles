@@ -100,8 +100,6 @@ export PATH
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 #@aquaductape
 
-# Wal sequence loader
-(cat ~/.cache/wal/sequences &)
 
 # my aliases
 
