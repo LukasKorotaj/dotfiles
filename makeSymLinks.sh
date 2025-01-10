@@ -13,13 +13,13 @@ ln -sf "$(pwd)/alacritty/alacritty.toml" "$HOME/.config/alacritty/"
 ls -l "$HOME/.config/alacritty/alacritty.toml"
 
 
-for file in $(pwd)/.scripts/*; do
-	ln -sf "$file" $HOME/.config/.scripts/
-done
-
-for file in $HOME/.config/.scripts/*; do 
-	ls -l "$file"
-done
+#for file in $(pwd)/.scripts/*; do
+#	ln -sf "$file" $HOME/.config/.scripts/
+#done
+#
+#for file in $HOME/.config/.scripts/*; do 
+#	ls -l "$file"
+#done
 
 
 ln -sf "$(pwd)/i3/config" "$HOME/.config/i3/"
@@ -46,8 +46,8 @@ ls -l "$HOME/.config/ranger/rifle.conf"
 ln -sf "$(pwd)/rofi/config.rasi" "$HOME/.config/rofi/"
 ls -l "$HOME/.config/rofi/config.rasi"
 
-ln -sf "$(pwd)/dracula.json" "$HOME/.config/wal/colorschemes/dark/"
-ls -l "$HOME/.config/wal/colorschemes/dark/dracula.json"
+#ln -sf "$(pwd)/dracula.json" "$HOME/.config/wal/colorschemes/dark/"
+#ls -l "$HOME/.config/wal/colorschemes/dark/dracula.json"
 
 ln -sf "$(pwd)/tmux/tmux.conf" "$HOME/.config/tmux/"
 ls -l "$HOME/.config/tmux/tmux.conf"
