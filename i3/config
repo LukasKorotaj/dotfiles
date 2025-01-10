@@ -250,6 +250,9 @@ bindsym $mod+Shift+F2 exec chromium
 # wal
 #exec_always --no-startup-id wal -nsR'" 
 #exec_always --no-startup-id wal -nseR
+#brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # spotify keybinding
 bindsym $mod+Shift+F3 exec spotify
