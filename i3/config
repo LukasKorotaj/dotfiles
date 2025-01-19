@@ -245,7 +245,7 @@ gaps outer 10
 for_window [class="^.*"] border pixel 0
 
 # firefox browser
-bindsym $mod+Shift+F2 exec chromium
+bindsym $mod+Shift+F2 exec brave
 
 # wal
 #exec_always --no-startup-id wal -nsR'" 
@@ -258,7 +258,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym $mod+Shift+F3 exec spotify
 
 # discord keybinding
-bindsym $mod+Shift+F4 exec discord
+bindsym $mod+Shift+F4 exec vesktop
 
 # tipkovnica/keyboard
 exec_always setxkbmap -layout us -option caps:escape -option compose:ralt

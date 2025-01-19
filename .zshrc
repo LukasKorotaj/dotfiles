@@ -53,6 +53,10 @@ _comp_options+=(globdots)		# Include hidden files.
 bindkey -v
 export KEYTIMEOUT=1
 
+##nvm stuff
+#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -84,8 +88,8 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 
-PATH="$PATH:/usr/local/texlive/2020/bin/x86_64-linux"
-PATH="$PATH:/home/gospodar/programs/libcluon/build"
+#PATH="$PATH:/usr/local/texlive/2020/bin/x86_64-linux"
+#PATH="$PATH:/home/gospodar/programs/libcluon/build"
 MANPATH=/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH
 export MANPATH
 export PATH
@@ -96,8 +100,6 @@ export PATH
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 
-# Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 #@aquaductape
 
 
@@ -133,3 +135,6 @@ pdf() {
 }
 
 export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
+
+# Load zsh-syntax-highlighting; should be last.
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
