@@ -128,6 +128,7 @@ alias cdnvimplugins="cd ~/.config/nvim/lua/custom/plugins/"
 alias repl="scala-cli repl ."
 alias ta="tmux attach"
 alias c="clear"
+alias deepseek="ollama run deepseek-r1:32b"
 
 
 # function/alias for opening pdf files in default browser
@@ -135,7 +136,8 @@ pdf() {
 	nohup xdg-open "$1" & disown
 }
 
-export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk/"
+export PATH=$JAVA_HOME/bin:$PATH
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
