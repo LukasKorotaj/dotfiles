@@ -87,6 +87,10 @@ bindkey '^r' history-incremental-search-backward
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
+# set java home
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+export PATH=$JAVA_HOME/bin:$PATH
+
 
 #PATH="$PATH:/usr/local/texlive/2020/bin/x86_64-linux"
 #PATH="$PATH:/home/gospodar/programs/libcluon/build"
@@ -107,7 +111,7 @@ export PATH
 
 alias nv="nvim"
 alias snv="sudo nvim"
-alias r="ranger"
+alias ra="ranger"
 alias sr="sudo ranger"
 alias keyboard_se="setxkbmap -layout se"
 alias keyboard_gb="setxkbmap -layout gb"
@@ -129,6 +133,8 @@ alias repl="scala-cli repl ."
 alias ta="tmux attach"
 alias c="clear"
 alias deepseek="ollama run deepseek-r1:32b"
+alias javaRunner="~/dotfiles/utils/java/javaRunner.sh"
+alias javaDebugger= "~/dotfiles/utils/java/javaDebugger.sh"
 
 
 # function/alias for opening pdf files in default browser
