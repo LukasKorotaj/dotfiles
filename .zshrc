@@ -134,7 +134,7 @@ alias ta="tmux attach"
 alias c="clear"
 alias deepseek="ollama run deepseek-r1:32b"
 alias javaRunner="~/dotfiles/utils/java/javaRunner.sh"
-alias javaDebugger= "~/dotfiles/utils/java/javaDebugger.sh"
+alias javaDebugger="~/dotfiles/utils/java/javaDebugger.sh"
 
 
 # function/alias for opening pdf files in default browser

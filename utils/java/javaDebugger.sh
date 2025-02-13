@@ -16,7 +16,6 @@ MAIN_CLASS=$1
 
 # Find all .java files in the src/ directory and store them in a variable
 JAVA_FILES=$(find $SRC_DIR -name "*.java")
-MAIN_FILE="$SRC_DIR/${MAIN_CLASS//.//}.java"
 
 # Compile the Java files
 echo "Compiling Java files..."
@@ -27,7 +26,7 @@ if [ $? -eq 0 ]; then
     echo "Compilation successful."
 
     echo "Going to neovim."
-    nvim $MAIN_FILE
+    nvim $1
 else
     echo "Compilation failed."
     exit 1
