@@ -283,3 +283,9 @@ element-text, element-icon {
     background-color: inherit;
     text-color: inherit;
 }
+
+configuration {
+    combi-modi: "window,drun,ssh,MyScript:~/dotfiles/rofi/i3-resurrect.sh";
+    modi: "combi";
+}
+

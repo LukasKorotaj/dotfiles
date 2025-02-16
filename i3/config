@@ -263,6 +263,8 @@ bindsym $mod+Shift+F3 exec spotify
 # discord keybinding
 bindsym $mod+Shift+F4 exec vesktop
 
+#resurrect keybinding
+bindsym $mod+Shift+s exec ~/dotfiles/rofi/i3-resurrect.sh
 # tipkovnica/keyboard
 exec_always setxkbmap -layout us -option caps:escape -option compose:ralt
 # turn off the beep
