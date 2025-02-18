@@ -218,7 +218,7 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # i3lock, ovo tu je self expainatory, samo znaj da FILE HEADER mora biti .png, FILE HEADER, ne file extension
 # bindsym $mod+Shift+x exec i3lock --image=/home/lukas/Pictures/thumb-1920-600924.png -t
-bindsym $mod+Shift+x exec i3lock --image=$HOME/Pictures/thumb-1920-600924.png -t 
+bindsym $mod+Shift+x exec i3lock -i ~/dotfiles/wallpapers/wallhaven-2evx9g_1920x1080.png 
 # && systemctl suspend
 
 #battery warning
