@@ -130,11 +130,10 @@ alias faks_vpn="sudo openfortivpn -c .openfortivpn/config"
 alias cdnvim="cd ~/.config/nvim/"
 alias cdnvimplugins="cd ~/.config/nvim/lua/custom/plugins/"
 alias repl="scala-cli repl ."
-alias ta="tmux attach"
-alias c="clear"
 alias deepseek="ollama run deepseek-r1:32b"
 alias javaRunner="~/dotfiles/utils/java/javaRunner.sh"
 alias javaDebugger="~/dotfiles/utils/java/javaDebugger.sh"
+alias t="task"
 
 
 # function/alias for opening pdf files in default browser
@@ -144,6 +143,9 @@ pdf() {
 
 export JAVA_HOME="/usr/lib/jvm/java-17-openjdk/"
 export PATH=$JAVA_HOME/bin:$PATH
+
+bindkey -r '^N'
+bindkey -r '^P'
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

@@ -8,9 +8,9 @@
 ln -sf "$(pwd)/.zshrc" "$HOME/.zshrc"
 ls -l "$HOME/.zshrc"
 
-
-ln -sf "$(pwd)/alacritty/alacritty.toml" "$HOME/.config/alacritty/"
-ls -l "$HOME/.config/alacritty/alacritty.toml"
+# I am using ghostty now because of the kitty graphics.
+#ln -sf "$(pwd)/alacritty/alacritty.toml" "$HOME/.config/alacritty/"
+#ls -l "$HOME/.config/alacritty/alacritty.toml"
 
 
 #for file in $(pwd)/.scripts/*; do
@@ -51,3 +51,6 @@ ls -l "$HOME/.config/rofi/config.rasi"
 
 ln -sf "$(pwd)/tmux/tmux.conf" "$HOME/.config/tmux/"
 ls -l "$HOME/.config/tmux/tmux.conf"
+
+ln -sf "$(pwd)/ghostty/config" "$HOME/.config/ghostty/"
+ls -l "$HOME/.config/ghostty/config"

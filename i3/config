@@ -42,7 +42,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec ghostty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -255,7 +255,7 @@ exec redshift
 # nemam vise compton
 
 #picom (blur i opacity)
-exec_always --no-startup-id picom 
+# exec_always --no-startup-id picom 
 
 # config za i3-gaps
 gaps inner 15
