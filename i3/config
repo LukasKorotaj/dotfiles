@@ -255,7 +255,7 @@ exec redshift
 # nemam vise compton
 
 #picom (blur i opacity)
-# exec_always --no-startup-id picom 
+exec_always --no-startup-id picom 
 
 # config za i3-gaps
 gaps inner 15

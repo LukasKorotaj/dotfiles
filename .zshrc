@@ -134,6 +134,7 @@ alias deepseek="ollama run deepseek-r1:32b"
 alias javaRunner="~/dotfiles/utils/java/javaRunner.sh"
 alias javaDebugger="~/dotfiles/utils/java/javaDebugger.sh"
 alias t="task"
+alias tw="taskwarrior-tui"
 
 
 # function/alias for opening pdf files in default browser
@@ -143,6 +144,9 @@ pdf() {
 
 export JAVA_HOME="/usr/lib/jvm/java-17-openjdk/"
 export PATH=$JAVA_HOME/bin:$PATH
+
+export GOOGLE_APPLICATION_CREDENTIALS="~/google/tasks-456510-6481b1b9b3ff.json"
+
 
 bindkey -r '^N'
 bindkey -r '^P'
