@@ -25,7 +25,12 @@ font Anonymous Pro:style=Regular 8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i $HOME/dotfiles/wallpapers/wallhaven-2evx9g_1920x1080.png
+
+# Shit for storing passwords
+exec --no-startup-id kwalletd6
+exec --no-startup-id /usr/lib/pam_kwallet_init
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -103,7 +108,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # switch between terminal windows
-bindsym Mod1+Shift+h exec --no-startup-id ~/dotfiles/i3/utils/ws_previous.sh 
+bindsym Mod1+Shift+h exec --no-startup-id ~/dotfiles/i3/utils/ws_previous.sh
 bindsym Mod1+Shift+l exec --no-startup-id ~/dotfiles/i3/utils/ws_next.sh
 
 # focus the parent container
@@ -114,52 +119,40 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
+set $ws1 "1:   Browser"
+set $ws2 "2:   NeoVim"
+set $ws3 "3:   Terminal"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
+set $ws8 "8:   Spotify"
 set $ws9 "9"
-set $ws10 "10"
-set $ws11 "11"
-set $ws12 "12"
-set $ws13 "13"
-set $ws14 "14"
+set $ws10 "10: 󰙯  Discord"
 
 # switch to workspace
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
+bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
-bindsym Shift+Mod1+1 workspace number $ws11
-bindsym Shift+Mod1+2 workspace number $ws12
-bindsym Shift+Mod1+3 workspace number $ws13
-bindsym Shift+Mod1+4 workspace number $ws14
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
 bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
-bindsym $mod+Mod1+1 move container to workspace number $ws11
-bindsym $mod+Mod1+2 move container to workspace number $ws12
-bindsym $mod+Mod1+3 move container to workspace number $ws13
-bindsym $mod+Mod1+4 move container to workspace number $ws14
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -203,7 +196,7 @@ bindsym $mod+r mode "resize"
 #client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 # Set colors from Xresources
-# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# Change 'color7' and 'color2' to whatever colors you want i3 to use
 # from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources.
@@ -220,28 +213,43 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 client.background       $bg
 
 # PROTIP: You can also dynamically set dmenu's colors this way:
-#bindsym $mod+d exec dmenu_run 
+#bindsym $mod+d exec dmenu_run
 #chaged dmenu to rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
 
  #Start i3bar to display a workspace bar (plus the system information i3status
  #finds out, if available)
-# bar {
-#        status_command i3status
-#}
+bar {
+    position top
+    status_command i3status
+    workspace_buttons yes
+    strip_workspace_numbers no
+    font pango:0xProto Nerd Font 8  # Using 0xProto Nerd Font
+
+    colors {
+        background #1a1b26
+        statusline #c0caf5
+        separator  #565f89
+
+        focused_workspace  #7aa2f7 #1a1b26 #7aa2f7
+        active_workspace   #c0caf5 #1a1b26 #565f89
+        inactive_workspace #565f89 #1a1b26 #7aa2f7
+        urgent_workspace   #f7768e #1a1b26 #f7768e
+    }
+}
 
 
 # i3lock, ovo tu je self expainatory, samo znaj da FILE HEADER mora biti .png, FILE HEADER, ne file extension
 # bindsym $mod+Shift+x exec i3lock --image=/home/lukas/Pictures/thumb-1920-600924.png -t
-bindsym $mod+Shift+x exec i3lock -i ~/dotfiles/wallpapers/wallhaven-2evx9g_1920x1080.png 
+bindsym $mod+Shift+x exec i3lock -i $HOME/dotfiles/wallpapers/wallhaven-2evx9g_1920x1080.png
 # && systemctl suspend
 
 #battery warning
 exec --no-startup-id i3-battery-popup
 
 # background image
-# exec_always bash $HOME/.config/.scripts/background.sh 
+# exec_always bash $HOME/.config/.scripts/background.sh
 exec_always feh --bg-fill $HOME/dotfiles/wallpapers/wallhaven-2evx9g_1920x1080.png
 
 # monitor setup, koristi autorandr default config file
@@ -250,12 +258,8 @@ exec_always autorandr -l default
 # night light program, koristi config file za redshift
 exec redshift
 
-# compton koristim za transparency na terminalu, -b opcija je deamonizanje comptona (pokrene se u pozadini)
-# exec_always compton -b
-# nemam vise compton
-
 #picom (blur i opacity)
-exec_always --no-startup-id picom 
+exec_always --no-startup-id picom
 
 # config za i3-gaps
 gaps inner 15
@@ -264,20 +268,22 @@ gaps outer 10
 for_window [class="^.*"] border pixel 0
 
 # firefox browser
-bindsym $mod+Shift+F2 exec brave
+bindsym $mod+Shift+F2 workspace $ws1; exec --no-startup-id brave
 
 # wal
-#exec_always --no-startup-id wal -nsR'" 
+#exec_always --no-startup-id wal -nsR'"
 #exec_always --no-startup-id wal -nseR
 #brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 # spotify keybinding
-bindsym $mod+Shift+F3 exec spotify
+bindsym $mod+Shift+F3 workspace $ws8; exec --no-startup-id spotify
+
+# bindsym for neovim
+bindsym $mod+Shift+F1 workspace $ws2; exec --no-startup-id ghostty -e nvim
 
 # discord keybinding
-bindsym $mod+Shift+F4 exec vesktop
+bindsym $mod+Shift+F4 workspace $ws10; exec --no-startup-id vesktop
 
 #resurrect keybinding
 bindsym $mod+Shift+s exec ~/dotfiles/rofi/i3-resurrect.sh
@@ -288,13 +294,5 @@ exec_always xset -b
 # holding a key is faster
 exec_always xset r rate 200 60
 
-# polybar launch script
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# run wal and then polybar (because this is fucking necessary)
-#exec_always --no-startup-id python $HOME/.config/.scripts/launch_pywal_polybar_xrdb.py
-
-# URxvt terminal emulator
-# Switched to alacritty
-# exec_always --no-startup-id xrdb $HOME/.config/.Xresources
-
+# Start programs with i3
+exec workspace $ws2; exec ghostty -e nvim

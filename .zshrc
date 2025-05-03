@@ -2,12 +2,10 @@
 #add .local/bin to path
 PATH=$PATH:~/.local/bin
 
-# auto startx upon login
+# Load Zsh completion system
+autoload -Uz compinit && compinit
 
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec startx
-fi
-
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # Enable colors and change prompt:
 autoload -U colors && colors
 PS1="%B%{$fg[green]%}[%{$fg[red]%}%n%{$fg[blue]%}@%{$fg[red]%}%M %{$fg[yellow]%}%(5~|%-1~/…/%3~|%4~)%{$fg[green]%}]%{$reset_color%}$%b "
@@ -42,29 +40,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
-
-# vi mode
-bindkey -v
-export KEYTIMEOUT=1
-
-##nvm stuff
-#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
-
-
 lfcd () {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
@@ -76,28 +51,15 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^v' edit-command-line
-
-# add backsearching
-bindkey '^r' history-incremental-search-backward
-
 # aliases
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# set java home
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
-export PATH=$JAVA_HOME/bin:$PATH
-
-
-#PATH="$PATH:/usr/local/texlive/2020/bin/x86_64-linux"
-#PATH="$PATH:/home/gospodar/programs/libcluon/build"
 MANPATH=/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH
 export MANPATH
 export PATH
 
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
@@ -137,19 +99,11 @@ alias t="task"
 alias tw="taskwarrior-tui"
 
 
-# function/alias for opening pdf files in default browser
-pdf() {
-	nohup xdg-open "$1" & disown
-}
-
 export JAVA_HOME="/usr/lib/jvm/java-17-openjdk/"
 export PATH=$JAVA_HOME/bin:$PATH
-
-export GOOGLE_APPLICATION_CREDENTIALS="~/google/tasks-456510-6481b1b9b3ff.json"
-
 
 bindkey -r '^N'
 bindkey -r '^P'
 
-# Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

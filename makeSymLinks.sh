@@ -26,13 +26,13 @@ ln -sf "$(pwd)/i3/config" "$HOME/.config/i3/"
 ls -l "$HOME/.config/i3/config"
 
 
-for file in $(pwd)/polybar/*; do 
-	ln -sf "$file" $HOME/.config/polybar/
-done
+#for file in $(pwd)/polybar/*; do 
+#	ln -sf "$file" $HOME/.config/polybar/
+#done
 
-for file in $HOME/.config/polybar/*; do
-	ls -l "$file"
-done
+#for file in $HOME/.config/polybar/*; do
+#	ls -l "$file"
+#done
 
 ln -sf "$(pwd)/picom/picom.conf" "$HOME/.config/picom/"
 ls -l "$HOME/.config/picom/picom.conf"
@@ -49,8 +49,11 @@ ls -l "$HOME/.config/rofi/config.rasi"
 #ln -sf "$(pwd)/dracula.json" "$HOME/.config/wal/colorschemes/dark/"
 #ls -l "$HOME/.config/wal/colorschemes/dark/dracula.json"
 
-ln -sf "$(pwd)/tmux/tmux.conf" "$HOME/.config/tmux/"
-ls -l "$HOME/.config/tmux/tmux.conf"
+#ln -sf "$(pwd)/tmux/tmux.conf" "$HOME/.config/tmux/"
+#ls -l "$HOME/.config/tmux/tmux.conf"
 
 ln -sf "$(pwd)/ghostty/config" "$HOME/.config/ghostty/"
 ls -l "$HOME/.config/ghostty/config"
+
+ln -sf "$(pwd)/i3status/config" "$HOME/.config/i3status/"
+ls -l "$HOME/.config/i3status/config"
