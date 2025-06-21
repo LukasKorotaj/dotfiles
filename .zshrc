@@ -73,7 +73,6 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 
 alias nv="nvim"
 alias snv="sudo nvim"
-alias ra="ranger"
 alias sr="sudo ranger"
 alias keyboard_se="setxkbmap -layout se"
 alias keyboard_gb="setxkbmap -layout gb"
@@ -97,13 +96,30 @@ alias javaRunner="~/dotfiles/utils/java/javaRunner.sh"
 alias javaDebugger="~/dotfiles/utils/java/javaDebugger.sh"
 alias t="task"
 alias tw="taskwarrior-tui"
+alias nvid="neovide"
+alias nnn="nnn -e"
+
+ra() {
+    tempfile="$(mktemp)"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    if [ -f "$tempfile" ]; then
+        target_dir="$(cat "$tempfile")"
+        if [ -d "$target_dir" ]; then
+            cd "$target_dir"
+        fi
+        rm -f "$tempfile"
+    fi
+}
 
 
-export JAVA_HOME="/usr/lib/jvm/java-17-openjdk/"
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk/"
 export PATH=$JAVA_HOME/bin:$PATH
 
 bindkey -r '^N'
 bindkey -r '^P'
 
+export NNN_PLUG='a:autojump;b:bulknew;d:dragdrop;f:fzopen;c:fzcd;'
+
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval "$(zoxide init --cmd j zsh)"

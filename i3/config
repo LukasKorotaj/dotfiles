@@ -47,7 +47,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec ghostty
+bindsym $mod+Return exec kitty -1
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -123,7 +123,7 @@ set $ws1 "1:   Browser"
 set $ws2 "2:   NeoVim"
 set $ws3 "3:   Terminal"
 set $ws4 "4"
-set $ws5 "5"
+set $ws5 "5:   Tasks"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8:   Spotify"
@@ -245,8 +245,11 @@ bar {
 bindsym $mod+Shift+x exec i3lock -i $HOME/dotfiles/wallpapers/wallhaven-2evx9g_1920x1080.png
 # && systemctl suspend
 
+# task sync server. better more than less i guess
+exec_always --no-startup-id task sync
+
 #battery warning
-exec --no-startup-id i3-battery-popup
+exec --no-startup-id i3-battery-popup -L 20%
 
 # background image
 # exec_always bash $HOME/.config/.scripts/background.sh
@@ -258,6 +261,12 @@ exec_always autorandr -l default
 # night light program, koristi config file za redshift
 exec redshift
 
+# notification daemon
+exec dunst
+
+# bluetooth
+exec --no-startup-id sh -c 'sleep 20 && blueman-applet'
+
 #picom (blur i opacity)
 exec_always --no-startup-id picom
 
@@ -267,8 +276,8 @@ gaps outer 10
 
 for_window [class="^.*"] border pixel 0
 
-# firefox browser
-bindsym $mod+Shift+F2 workspace $ws1; exec --no-startup-id brave
+# browser
+bindsym $mod+Shift+F2 workspace $ws1; exec --no-startup-id firefox
 
 # wal
 #exec_always --no-startup-id wal -nsR'"
@@ -277,10 +286,10 @@ bindsym $mod+Shift+F2 workspace $ws1; exec --no-startup-id brave
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 # spotify keybinding
-bindsym $mod+Shift+F3 workspace $ws8; exec --no-startup-id spotify
+bindsym $mod+Shift+F3 workspace $ws8; exec --no-startup-id spotify-launcher
 
 # bindsym for neovim
-bindsym $mod+Shift+F1 workspace $ws2; exec --no-startup-id ghostty -e nvim
+bindsym $mod+Shift+F1 workspace $ws2; exec --no-startup-id neovide
 
 # discord keybinding
 bindsym $mod+Shift+F4 workspace $ws10; exec --no-startup-id vesktop
@@ -294,5 +303,6 @@ exec_always xset -b
 # holding a key is faster
 exec_always xset r rate 200 60
 
-# Start programs with i3
-exec workspace $ws2; exec ghostty -e nvim
+# auto start tw-tui
+exec --no-startup-id i3-msg 'workspace $ws5; exec --no-startup-id kitty -e taskwarrior-tui'
+
