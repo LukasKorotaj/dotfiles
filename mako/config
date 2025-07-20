@@ -1,16 +1,16 @@
 sort=-time
 layer=overlay
 background-color=#1e222a7f
-width=450
+width=300
 height=150
-border-size=0
+border-size=2
 border-color=#14181d
 border-radius=10
-icons=0
+icons=1
 max-icon-size=64
 default-timeout=5000
 ignore-timeout=0
-font="HarmonyOS Sans SC" 16
+font="Oxproto Nerd Font" 10
 margin=12
 padding=12,20
 

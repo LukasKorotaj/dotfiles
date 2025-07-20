@@ -1,32 +1,43 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 33,
+    "height": 32,
     "margin": "3, 0, 2, 0",
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["mpris"],
     "modules-right": [
-        "backlight", 
-        "custom/separator",
+        //"backlight", 
+        //"custom/separator",
         "battery",
         "custom/separator",
         "pulseaudio",
         "custom/separator",
-        "clock","custom/separator","cpu","custom/separator","memory","custom/separator","network","tray",],
+        "clock",
+        //"custom/separator",
+        //"cpu",
+        //"custom/separator",
+        //"memory",
+        //"custom/separator",
+        //"network",
+        "custom/separator",
+        "tray"
+        ],
 
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "6": "",
-            "7": "",
-            "8": "",
-            "9": "",
-            "urgent": "",
+            "1": "🔥",
+            "2": "🗒️",
+            "3": "",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "",
+            "9": "9",
+            "10": "󰙯",
+            "urgent": "❗",
             "focused": "",
             "default": ""
         }
@@ -44,7 +55,19 @@
         "interval": 1,
         "locale": "C", 
         "format": "  {:%I:%M %p}",
-        "format-alt": "  {:%a,%b %d}" // Icon: calendar-alt
+        "format-alt": "  {:%a,%b %d}",
+        "tooltip-format": "<span font_family='monospace'>{calendar}</span>",
+        "calendar": {
+            "weeks-pos": "left",
+            "mode": "month",
+            "format": {
+                "months": "<span color='#ff6699'><b>{}</b></span>",
+                "weeks": "<span color='#ff69b4'><b>{}</b></span>",
+                "days": "<span color='#cdd6f4'><b>{:>2}</b></span>",
+                "weekdays": "<span color='#7CD37C'><b>{}</b></span>",
+                "today": "<span color='#ffcc66'><b>{:>2}</b></span>"
+            }
+        }
     },
     "cpu": {
         "format": "&#8239; {usage}%",
@@ -54,7 +77,6 @@
     "memory": {
         "interval": 30,
         "format": "  {used:0.2f}GB",
-
         "max-length": 10,
         "tooltip": false,
         "warning": 70,
@@ -144,7 +166,13 @@
       "tooltip-format-disconnected": "MPD (disconnected)",
       "max-length": 45
     },
-
+    "mpris": {
+        "player": "ncspot",
+        "format-playing": " {artist} — {title}",
+        "format-paused": " {artist} — {title}",
+        "format-stopped": " {artist} — {title}",
+        "title-len": 30
+    },
     "custom/recorder": {
         "format": " Rec",
         "format-disabled": " Off-air", //An empty format will hide the module.
