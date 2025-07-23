@@ -1,7 +1,9 @@
 hide_scroll=true
 show=drun
 width=600px
+lines=8
 line_wrap=word
+term=kitty
 allow_markup=true
 always_parse_args=false
 show_all=true
@@ -15,6 +17,5 @@ image_size=20
 display_generic=false
 location=center
 key_expand=Tab
-insensitive=true
+insensitive=false
 dynamic_lines=false
-ey_exit=Escape
