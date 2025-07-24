@@ -12,20 +12,23 @@ EOF
 # Handle user selection
 case $choice in
     "Light")
-        wallpaper="$HOME/dotfiles/themes/wallpapers/light.jpg"
-        matugen_cmd="matugen image '$wallpaper' -c '$HOME/dotfiles/themes/matugen/config.toml' --mode 'light'"
+        envsubst < $DOTFILES/themes/matugen/config.toml.tpl > $DOTFILES/themes/matugen/config.toml
+        wallpaper="$DOTFILES/themes/wallpapers/light.jpg"
+        matugen_cmd="matugen image '$wallpaper' -c '$DOTFILES/themes/matugen/config.toml' --mode 'light'"
         ;;
     "Dark")
-        wallpaper="$HOME/dotfiles/themes/wallpapers/dark.png"
-        matugen_cmd="matugen image '$wallpaper' -c '$HOME/dotfiles/themes/matugen/config.toml'"
+        envsubst < $DOTFILES/themes/matugen/config.toml.tpl > $DOTFILES/themes/matugen/config.toml
+        wallpaper="$DOTFILES/themes/wallpapers/dark.png"
+        matugen_cmd="matugen image '$wallpaper' -c '$DOTFILES/themes/matugen/config.toml'"
         ;;
     "Custom Light"|"Custom Dark")
+        envsubst < $DOTFILES/themes/matugen/config.toml.tpl > $DOTFILES/themes/matugen/config.toml
         # Use zenity as a fallback for file selection
         if command -v zenity &> /dev/null; then
             wallpaper=$(zenity --file-selection --title="Select wallpaper image" --file-filter="Image files | *.jpg *.jpeg *.png")
         else
             # Fallback to simple find + wofi if zenity not available
-            wallpaper=$(find "$HOME/Pictures" "$HOME/dotfiles/wallpapers" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | wofi --dmenu --prompt="Select wallpaper")
+            wallpaper=$(find "$HOME/Pictures" "$DOTFILES/wallpapers" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | wofi --dmenu --prompt="Select wallpaper")
         fi
         
         if [ -z "$wallpaper" ]; then
@@ -40,9 +43,9 @@ case $choice in
         fi
         
         if [ "$choice" = "Custom Light" ]; then
-            matugen_cmd="matugen image '$wallpaper' -c '$HOME/dotfiles/themes/matugen/config.toml' --mode 'light'"
+            matugen_cmd="matugen image '$wallpaper' -c '$DOTFILES/themes/matugen/config.toml' --mode 'light'"
         else
-            matugen_cmd="matugen image '$wallpaper' -c '$HOME/dotfiles/themes/matugen/config.toml'"
+            matugen_cmd="matugen image '$wallpaper' -c '$DOTFILES/themes/matugen/config.toml'"
         fi
         ;;
     *)
@@ -52,7 +55,7 @@ case $choice in
 esac
 
 # Update hyprpaper.conf
-hyprpaper_conf="$HOME/dotfiles/hypr/hyprpaper.conf"
+hyprpaper_conf="$DOTFILES/hypr/hyprpaper.conf"
 
 # Escape path for sed
 escaped_wallpaper=$(printf '%s\n' "$wallpaper" | sed 's:[][\/.^$*]:\\&:g')

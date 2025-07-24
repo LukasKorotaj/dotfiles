@@ -25,7 +25,7 @@ font Anonymous Pro:style=Regular 8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i $HOME/dotfiles/wallpapers/wallhaven-2evx9g_1920x1080.png
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i $DOTFILES/wallpapers/wallhaven-2evx9g_1920x1080.png
 
 # Shit for storing passwords
 exec --no-startup-id kwalletd6
@@ -108,8 +108,8 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # switch between terminal windows
-bindsym Mod1+Shift+h exec --no-startup-id ~/dotfiles/i3/utils/ws_previous.sh
-bindsym Mod1+Shift+l exec --no-startup-id ~/dotfiles/i3/utils/ws_next.sh
+bindsym Mod1+Shift+h exec --no-startup-id $DOTFILES/i3/utils/ws_previous.sh
+bindsym Mod1+Shift+l exec --no-startup-id $DOTFILES/i3/utils/ws_next.sh
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -242,7 +242,7 @@ bar {
 
 # i3lock, ovo tu je self expainatory, samo znaj da FILE HEADER mora biti .png, FILE HEADER, ne file extension
 # bindsym $mod+Shift+x exec i3lock --image=/home/lukas/Pictures/thumb-1920-600924.png -t
-bindsym $mod+Shift+x exec i3lock -i $HOME/dotfiles/wallpapers/wallhaven-2evx9g_1920x1080.png
+bindsym $mod+Shift+x exec i3lock -i $DOTFILES/wallpapers/wallhaven-2evx9g_1920x1080.png
 # && systemctl suspend
 
 # task sync server. better more than less i guess
@@ -253,7 +253,7 @@ exec --no-startup-id i3-battery-popup -L 20%
 
 # background image
 # exec_always bash $HOME/.config/.scripts/background.sh
-exec_always feh --bg-fill $HOME/dotfiles/wallpapers/wallhaven-2evx9g_1920x1080.png
+exec_always feh --bg-fill $DOTFILES/wallpapers/wallhaven-2evx9g_1920x1080.png
 
 # monitor setup, koristi autorandr default config file
 exec_always autorandr -l default
@@ -292,13 +292,13 @@ bindsym $mod+Shift+F3 workspace $ws8; exec --no-startup-id spotify-launcher
 bindsym $mod+Shift+F1 workspace $ws2; exec --no-startup-id neovide
 
 # Swap workspace
-bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/i3/utils/swap_workspace.sh
+bindsym $mod+Shift+p exec --no-startup-id $DOTFILES/i3/utils/swap_workspace.sh
 
 # discord keybinding
 bindsym $mod+Shift+F4 workspace $ws10; exec --no-startup-id vesktop
 
 #resurrect keybinding
-bindsym $mod+Shift+s exec ~/dotfiles/rofi/i3-resurrect.sh
+bindsym $mod+Shift+s exec $DOTFILES/rofi/i3-resurrect.sh
 # tipkovnica/keyboard
 exec_always setxkbmap -layout us -option caps:escape -option compose:ralt
 # turn off the beep
