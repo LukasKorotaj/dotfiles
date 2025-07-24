@@ -1,21 +1,25 @@
+@import "colors.css";
+
 * {
   font-family: JetBrainsMono;
-  color: #e5e9f0;
+  color: @on_background;
   background: transparent;
 }
 
 #window {
-  background: rgba(41, 46, 66, 0.5);
+  background: rgba(@surface, 0.5);
   margin: auto;
   padding: 10px;
   border-radius: 20px;
-  border: 5px solid #b072d1;
+  border: 5px solid @primary;
 }
 
 #input {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 15px;
+  background-color: @surface_variant;
+  color: @on_surface;
 }
 
 #outer-box {
@@ -32,9 +36,10 @@
 }
 
 #entry:selected {
-  background-color: #2e3440;
+  background-color: @surface_dim;
 }
 
 #text {
   margin: 2px;
+  color: @on_background;
 }

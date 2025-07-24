@@ -1,16 +1,4 @@
-@define-color critical #ff0000; /* critical color */
-@define-color warning #f3f809;  /* warning color */
-@define-color fgcolor #ffffff;  /* foreground color */
-@define-color bgcolor #303030;  /* background color */
-@define-color bgcolor #222436;  /* background color */
-@define-color alert   #df3320;
-
-@define-color accent1 #ff7a93;
-@define-color accent2 #b9f27c;
-@define-color accent3 #ff9e64;
-@define-color accent4 #bb9af7;
-@define-color accent5 #7da6ff;
-@define-color accent6 #0db9d7;
+@import "colors.css";
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
@@ -21,10 +9,8 @@
 }
 
 window#waybar {
-
-    background-color: rgba(34, 36, 54, 0.6);
-    /* border-bottom: 0px solid rgba(100, 114, 125, 0.5); */
-    color: #ffffff;
+    background-color: @surface;      /* main background */
+    color: @on_surface;              /* main text color */
     transition-property: background-color;
     transition-duration: .5s;
     border-radius: 4px;
@@ -38,15 +24,15 @@ window#waybar.hidden {
     padding: 0px;
     margin: 4px 0 6px 0;
     background-color: transparent;
-    color: #ffffff;
+    color: @on_surface_variant;     /* less prominent text */
     min-width: 36px;
 }
 
 #workspaces button.active {
     padding: 0 0 0 0;
     margin: 4px 0 6px 0;
-    background-color: #ddddff;
-    color: #303030;
+    background-color: @primary_container; /* active bg */
+    color: @on_primary_container;          /* active fg */
     min-width: 36px;
 }
 
@@ -55,17 +41,17 @@ window#waybar.hidden {
 }
 
 #workspaces button.focused {
-    background-color: #bbccdd;
-    color: #323232;
+    background-color: @surface_container_high;  /* focused bg */
+    color: @on_surface;                          /* focused fg */
 }
 
 #workspaces button.urgent {
-    color: red;
+    color: @error;    /* urgent color */
 }
 
 #mode {
-    background-color: #64727D;
-    border-bottom: 1px solid #ffffff;
+    background-color: @surface_container_highest;
+    border-bottom: 1px solid @outline;
 }
 
 #clock,
@@ -85,8 +71,8 @@ window#waybar.hidden {
 #language {
     padding: 0px 3px;
     margin: 4px 3px 5px 3px;
-    color: @fgcolor;
-    background-color:transparent;
+    color: @on_surface;
+    background-color: transparent;
 }
 
 #window,
@@ -105,111 +91,115 @@ window#waybar.hidden {
 }
 
 #clock {
-    color: #90ee90;
+    color: @on_primary_container;
 }
 
 #battery {
-    color: @accent5;
+    color: @on_primary_container;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #333333;
+        background-color: @on_surface;
+        color: @surface;
     }
 }
 
 #battery.critical:not(.charging) {
-    background-color: @critical;
-    color: @white;
+    background-color: @error_container;
+    color: @on_error_container;
 }
 
 label:focus {
-    background-color: #000000;
+    background-color: @surface_container_low;
 }
 
 #cpu {
-    color: @accent1;
+    color: @on_primary_container;
 }
 
 #memory {
-    color: #86e2d5;
+    color: @on_primary_container;
 }
 
 #backlight {
-    color: @accent2;
+    color: @on_primary_container;
 }
 
 #network {
-    color: @accent3;
+    color: @on_primary_container;
 }
 
 #network.disconnected {
-    color: @alert;
+    color: @error;
 }
 
 #pulseaudio {
-    color: @accent4;
+    color: @on_primary_container;
 }
 
 #pulseaudio.muted {
-    color: #a0a0a0;
+    color: @surface_variant;
 }
 
 #custom-power {
-    color: @accent6;
+    color: @on_primary_container;
+}
+
+#custom-mpris {
+    color: @on_primary_container;
 }
 
 #custom-waylandvsxorg {
-    color: @accent5;
+    color: @on_primary_container;
 }
 
 #custom-pacman {
-    color: @accent2;
+    color: @on_primary_container;
 }
 
 #custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
+    background-color: @secondary_container;
+    color: @on_secondary_container;
     min-width: 100px;
 }
 
 #custom-media.custom-spotify {
-    background-color: #66cc99;
+    background-color: @secondary_container;
 }
 
 #custom-media.custom-vlc {
-    background-color: #ffa000;
+    background-color: @tertiary_container;
 }
 
 #temperature {
-    color: @accent6;
+    color: @on_primary_container;
 }
 
 #temperature.critical {
-    background-color: @critical;
+    background-color: @error_container;
 }
 
 #tray {
-
+    /* no colors set */
 }
 
 #idle_inhibitor {
-    background-color: #343434;
+    background-color: @surface_container_low;
     border-radius: 4px;
 }
 
 #mpd {
-    color: #d1e231;
+    color: @on_primary_container;
 }
 
 #custom-language {
-    color: @accent5;
+    color: @on_primary_container;
     min-width: 16px;
 }
 
 #custom-separator {
-    color: #606060;
+    color: @outline_variant;
     margin: 0 1px;
     padding-bottom: 5px;
 }
@@ -221,5 +211,5 @@ label:focus {
 
 #custom-recorder,
 #custom-audiorec {
-    color: #c71585;
+    color: @tertiary;
 }
