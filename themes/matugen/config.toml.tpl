@@ -30,8 +30,12 @@ post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings s
 
 [templates.gtk4]
 input_path = '../templates/colors.gtk.tpl'
-output_path = '${DOTFILES}/gtk-3.0/colors.css'
+output_path = '${DOTFILES}/gtk-4.0/colors.css'
 
 [templates.qt5ct]
 input_path = '../templates/colors.qt.tpl'
 output_path = '${DOTFILES}/qt5ct/matugen.conf'
+
+[templates.mako]
+input_path = '../templates/colors.mako.tpl'
+output_path = '$DOTFILES/mako/config'

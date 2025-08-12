@@ -2,9 +2,9 @@
     "layer": "top",
     "position": "top",
     "height": 32,
-    "margin": "3, 0, 2, 0",
+    "margin": "10, 5, 0, 10",
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["custom/space", "hyprland/workspaces"],
     "modules-center": ["mpris"],
     "modules-right": [
         //"backlight", 
@@ -21,7 +21,8 @@
         //"custom/separator",
         //"network",
         "custom/separator",
-        "tray"
+        "tray",
+        "custom/space"
         ],
 
     "hyprland/workspaces": {
@@ -30,7 +31,7 @@
             "1": "🔥",
             "2": "🗒️",
             "3": "",
-            "4": "4",
+            "4": "🎮",
             "5": "5",
             "6": "6",
             "7": "7",
@@ -44,6 +45,11 @@
     },
     "custom/separator": {
         "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/space": {
+        "format": " ",
         "interval": "once",
         "tooltip": false
     },

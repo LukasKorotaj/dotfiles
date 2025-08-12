@@ -1,10 +1,10 @@
 sort=-time
 layer=overlay
-background-color="{{colors.surface.default.hex}}"
+background-color={{colors.surface.default.hex}}
 width=300
 height=150
 border-size=2
-border-color="{{colors.primary.default.hex}}"
+border-color={{colors.primary.default.hex}}
 border-radius=10
 icons=1
 max-icon-size=64

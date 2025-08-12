@@ -105,7 +105,7 @@ ra() {
     if [ -f "$tempfile" ]; then
         target_dir="$(cat "$tempfile")"
         if [ -d "$target_dir" ]; then
-            cd "$target_dir"
+            j "$target_dir"
         fi
         rm -f "$tempfile"
     fi
@@ -119,6 +119,9 @@ bindkey -r '^N'
 bindkey -r '^P'
 
 export NNN_PLUG='a:autojump;b:bulknew;d:dragdrop;f:fzopen;c:fzcd;'
+
+export TASKRC='/home/shared/.taskrc'
+export TASKDATA='/home/shared/.task'
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
