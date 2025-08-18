@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Taskwarrior TUI
+Comment=Manage tasks with Taskwarrior
+TryExec=taskwarrior-tui
+Exec=kitty --hold -e taskwarrior-tui --taskrc=Sync/.taskrc
+Terminal=false
+Categories=Utility;ConsoleOnly;
+Keywords=task;tui;life;
