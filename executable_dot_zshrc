@@ -89,13 +89,6 @@ export PATH=$JAVA_HOME/bin:$PATH
 bindkey -r '^N'
 bindkey -r '^P'
 
-export NNN_PLUG='a:autojump;b:bulknew;d:dragdrop;f:fzopen;c:fzcd;'
-
-export TASKRC='$HOME/Sync/.taskrc'
-export TASKDATA='$HOME/Sync/.task'
-
-export CHEZMOI_SOURCE_DIR=$DOTFILES
-
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(zoxide init --cmd j zsh)"
