@@ -26,7 +26,8 @@ if window_exists; then
         LAST_FILE=$(ls -t /tmp/textGod-*.md 2>/dev/null | head -n 1)
         copy_to_clipboard "$LAST_FILE"
         
-        wtype $(wl-paste)
+        sleep 0.2   # give clipboard time
+        hyprctl dispatch sendshortcut CTRL+SHIFT,v,  
     fi
 else
     TMP_FILE=$(mktemp --suffix=.md /tmp/textGod-XXXXXX)
