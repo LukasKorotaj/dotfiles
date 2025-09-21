@@ -58,6 +58,7 @@ exec-once = hyprctl dispatch workspace 9; obsidian
 exec-once = sh -c 'sleep 20 && blueman-applet'
 exec-once = nm-applet
 exec-once = /usr/lib/pam_kwallet_init
+exec-once = hyprsunset
 
 
 #############################
@@ -231,6 +232,15 @@ input {
     }
 }
 
+device {
+  name = sony-interactive-entertainment-dualsense-wireless-controller-touchpad
+  enabled = 0
+}
+device {
+  name = dualsense-wireless-controller-touchpad
+  enabled = 0
+}
+
 # https://wiki.hypr.land/Configuring/Variables/#gestures
 gestures {
 }
@@ -257,6 +267,7 @@ bind = $mainMod SHIFT, F3, exec, ncspot
 bind = $mainMod SHIFT, F2, exec, $browser
 bind = $mainMod SHIFT, B, exec, sh -c '$HOME/.config/wofi/change_theme.sh'
 bind = $mainMod SHIFT, T, exec, .local/bin/textGod.sh
+bind = $mainMod SHIFT, H, exec, .local/bin/screenshot.sh
 
 # Example binds, see https://wiki.hypr.land/Configuring/Binds/ for more
 bind = $mainMod SHIFT, Q, killactive,

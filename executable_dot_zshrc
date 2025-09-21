@@ -81,6 +81,7 @@ alias javaRunner="$DOTFILES/utils/java/javaRunner.sh"
 alias javaDebugger="$DOTFILES/utils/java/javaDebugger.sh"
 alias t="task"
 alias tw="taskwarrior-tui"
+alias chaos="nvim ~/Sync/chaos/Welcome.md"
 
 
 export JAVA_HOME="/usr/lib/jvm/java-21-openjdk/"
