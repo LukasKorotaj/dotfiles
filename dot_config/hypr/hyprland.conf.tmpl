@@ -54,9 +54,10 @@ exec-once = cliphist store &
 exec-once = wl-paste --watch cliphist store &
 exec-once = systemctl --user start hyprpolkitagent
 exec-once = hypridle
-exec-once = hyprctl dispatch workspace 5; gio launch $HOME/.local/share/applications/taskwarrior-tui.desktop
+exec-once = hyprctl dispatch workspace 9; obsidian
 exec-once = sh -c 'sleep 20 && blueman-applet'
 exec-once = nm-applet
+exec-once = /usr/lib/pam_kwallet_init
 
 
 #############################
@@ -232,7 +233,6 @@ input {
 
 # https://wiki.hypr.land/Configuring/Variables/#gestures
 gestures {
-    workspace_swipe = false
 }
 
 # Example per-device config
@@ -349,7 +349,6 @@ bindl = , XF86AudioPrev, exec, playerctl previous
 windowrule = workspace 1,class:^(firefox),title:^(Mozilla Firefox)$
 windowrule = workspace 10,class:^(vesktop),title:^(Discord)$
 windowrule = workspace 8,class:^(kitty),title:^(ncspot)$
-windowrule = workspace 2,class:^(neovide),title:^(Neovide)$
 
 windowrule = float, class:^(textGod)$
 windowrule = size 800 500, class:^(textGod)$
