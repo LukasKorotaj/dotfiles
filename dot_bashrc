@@ -2,9 +2,18 @@ alias ls='eza --long --icons --group-directories-first'
 alias ll='eza --long -lh --icons --grid --group-directories-first'
 alias lt='eza --tree --level=2 --icons' # Great for project structure
 
+function ra() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
 export EDITOR='nvim'
 
 eval "$(starship init bash)"
 
 
+eval "$(zoxide init --cmd cd bash)"
 [[ $- == *i* ]] && source /usr/share/blesh/ble.sh

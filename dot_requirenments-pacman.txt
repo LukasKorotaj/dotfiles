@@ -20,6 +20,7 @@ git
 grub
 gst-plugin-pipewire
 hyprland
+hypridle
 iwd
 kitty
 less

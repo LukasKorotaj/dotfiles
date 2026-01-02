@@ -1,7 +1,5 @@
 blesh-git
 matugen-git
 noctalia-shell
-paru
-paru-debug
 python-pywalfox
 vesktop-bin
