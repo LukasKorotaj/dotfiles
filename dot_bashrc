@@ -10,8 +10,9 @@ function ra() {
 	rm -f -- "$tmp"
 }
 
-export EDITOR='nvim'
-export PATH='$PATH:~/.local/bin/'
+export EDITOR="nvim"
+export PATH="$PATH:/home/lukas/.local/bin"
+export PATH="$PATH:/home/lukas/.cargo/bin"
 
 eval "$(starship init bash)"
 
