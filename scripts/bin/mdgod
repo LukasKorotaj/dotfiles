@@ -1,0 +1,12 @@
+#!/bin/bash
+
+TIMESTAMP=$(date +"%Y%m%d%H%M")
+FILE="/tmp/mdgod-${TIMESTAMP}.md"
+
+echo -ne "\033]2;mdgod\007"
+
+nvim -c "set title | set titlestring=mdgod" +startinsert "$FILE"
+
+if [ -f "$FILE" ] && [ -s "$FILE" ]; then
+    cat "$FILE" | wl-copy & disown
+fi
