@@ -1,0 +1,86 @@
+#!/bin/bash
+
+# Vibe-Coding Environment Bootstrapper (2026 Edition)
+# Usage: ./vibe.sh /path/to/project
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+if [ -z "$1" ]; then
+    echo "Usage: ./vibe.sh <project_directory>"
+    exit 1
+fi
+
+PROJECT_DIR=$(realpath "$1")
+IMAGE_NAME="gemini-vibe-agent"
+CONTAINER_NAME="vibe-agent-$(basename "$PROJECT_DIR")"
+
+# 1. Dependency Check
+echo "🔍 Checking dependencies..."
+for cmd in docker firejail zeditor pass; do
+    if ! command -v "$cmd" &> /dev/null; then
+        echo "❌ Error: '$cmd' is not installed."
+        echo "Please install it (e.g., sudo pacman -S $cmd) and try again."
+        exit 1
+    fi
+done
+
+# 2. Fetch API Key
+echo "🔑 Fetching API key..."
+if ! GEMINI_KEY=$(pass show gemini/gemini-api 2>/dev/null); then
+    echo "❌ Error: Could not retrieve API key from pass."
+    exit 1
+fi
+
+# 3. Build Image if it doesn't exist
+if ! docker image inspect "$IMAGE_NAME" &> /dev/null; then
+    echo "🛠️ Image '$IMAGE_NAME' not found. Building base image now..."
+    # Create a temporary minimal Dockerfile on the fly
+    TMP_DIR=$(mktemp -d)
+    cat << 'EOF' > "$TMP_DIR/Dockerfile"
+FROM python:3.11-slim
+RUN pip install --no-cache-dir google-generativeai
+WORKDIR /workspace
+# Keep the container alive so the agent can execute commands
+CMD ["tail", "-f", "/dev/null"] 
+EOF
+    docker build -t "$IMAGE_NAME" "$TMP_DIR"
+    rm -rf "$TMP_DIR"
+fi
+
+echo "🚀 Booting Secure Vibe Environment for: $PROJECT_DIR"
+
+# Cleanup function triggered automatically on exit
+cleanup() {
+    echo "🧹 Closing environment and cleaning up..."
+    docker rm -f "$CONTAINER_NAME" &> /dev/null || true
+}
+trap cleanup EXIT
+
+# 4. Start the Agent in a Hardened Docker Container
+# Dropping capabilities and preventing new privileges mimics the sandbox
+echo "📦 Spinning up Gemini container..."
+docker run --name "$CONTAINER_NAME" \
+    -v "$PROJECT_DIR:/workspace" \
+    -e GEMINI_API_KEY="$GEMINI_KEY" \
+    --cap-drop=ALL \
+    --security-opt no-new-privileges=true \
+    --detach \
+    "$IMAGE_NAME" > /dev/null
+
+# 5. Launch Zed with Firejail Hardening
+echo "🛡️ Launching Zed in Firejail with persistent settings..."
+
+# We create the directories first to ensure Firejail can mount them properly
+mkdir -p ~/.config/zed ~/.local/share/zed
+
+firejail --noprofile \
+    --whitelist="$PROJECT_DIR" \
+    --whitelist="~/.config/zed" \
+    --whitelist="~/.local/share/zed" \
+    --private-tmp \
+    --dns=8.8.8.8 \
+    --env=GEMINI_API_KEY="$GEMINI_KEY" \
+    zeditor "$PROJECT_DIR"
+
+# Note: Once Zed is closed, the 'trap cleanup EXIT' will automatically remove the container.
