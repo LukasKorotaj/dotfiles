@@ -1,0 +1,47 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "vim_mode": true,
+  "agent": {
+    "profiles": {
+      "default-for-vibe": {
+        "default_model": {
+          "provider": "google",
+          "model": "gemini-3-flash-preview",
+          "enable_thinking": false
+        },
+        "name": "Default for Vibe",
+        "tools": {
+          "edit_file": false,
+          "fetch": true,
+          "find_path": true,
+          "grep": true,
+          "diagnostics": true,
+          "thinking": true,
+          "copy_path": false,
+          "list_directory": true,
+          "read_file": true
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {}
+      }
+    },
+    "default_profile": "write",
+    "default_model": {
+      "provider": "google",
+      "model": "gemini-3-flash-preview",
+      "enable_thinking": false
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": "Gruvbox Dark Hard",
+}
