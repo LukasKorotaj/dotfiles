@@ -7,39 +7,35 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "which_key": {
+    "delay_ms": 100,
+    "enabled": true,
+  },
   "vim_mode": true,
   "agent": {
-    "profiles": {
-      "default-for-vibe": {
-        "default_model": {
-          "provider": "google",
-          "model": "gemini-3-flash-preview",
-          "enable_thinking": false
+    "tool_permissions": {
+      "tools": {
+        "terminal": {
+          "always_allow": [
+            {
+              "pattern": "^cargo\\b",
+            },
+            {
+              "pattern": "^grep\\b",
+            },
+          ],
         },
-        "name": "Default for Vibe",
-        "tools": {
-          "edit_file": false,
-          "fetch": true,
-          "find_path": true,
-          "grep": true,
-          "diagnostics": true,
-          "thinking": true,
-          "copy_path": false,
-          "list_directory": true,
-          "read_file": true
-        },
-        "enable_all_context_servers": false,
-        "context_servers": {}
-      }
+      },
     },
+    "profiles": {},
     "default_profile": "write",
     "default_model": {
-      "provider": "google",
-      "model": "gemini-3-flash-preview",
-      "enable_thinking": false
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-6-latest",
+      "enable_thinking": false,
     },
     "favorite_models": [],
-    "model_parameters": []
+    "model_parameters": [],
   },
   "ui_font_size": 16,
   "buffer_font_size": 15,
