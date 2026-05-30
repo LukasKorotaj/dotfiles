@@ -1,0 +1,5 @@
+hl.on("hyprland.start", function()
+	hl.exec_cmd("qs -c noctalia-shell")
+	hl.exec_cmd("hypridle")
+	hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
+end)

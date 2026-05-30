@@ -1,0 +1,6 @@
+require("lua.config.envs")
+require("lua.config.autostart")
+require("lua.config.monitors")
+require("lua.config.input")
+require("lua.config.bindings")
+require("lua.config.window_rules")
