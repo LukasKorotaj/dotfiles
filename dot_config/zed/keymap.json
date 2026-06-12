@@ -1,0 +1,82 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  {
+    "context": "(Editor && showing_completions)",
+    "bindings": {
+      "ctrl-enter": "editor::ConfirmCompletion",
+    },
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "ctrl-w": [
+        "pane::CloseActiveItem",
+        {
+          "close_pinned": false,
+        },
+      ],
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space": null,
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space shift-k": "editor::GoToDefinitionSplit",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": { "space i n": ["task::Spawn", { "task_name": "New Note" }] },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space i j": ["task::Spawn", { "task_name": "New Journal Entry" }],
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "j": [
+        "vim::Down",
+        {
+          "display_lines": true
+        }
+      ]
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "k": [
+        "vim::Up",
+        {
+          "display_lines": true
+        }
+      ]
+    }
+  }
+]

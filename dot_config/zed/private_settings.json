@@ -7,14 +7,49 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry",
+    },
+  },
+  "inlay_hints": {
+    "enabled": false,
+  },
+  "cli_default_open_behavior": "existing_window",
+  "helix_mode": false,
+  "vim": {
+    "use_regex_search": true,
+    "gdefault": true,
+    "use_smartcase_find": false,
+  },
+  "project_panel": {
+    "dock": "left",
+  },
   "which_key": {
     "delay_ms": 100,
     "enabled": true,
   },
   "vim_mode": true,
   "agent": {
+    "sidebar_side": "right",
+    "dock": "right",
     "tool_permissions": {
       "tools": {
+        "mcp:DuckDuckGo:search": {
+          "default": "allow",
+        },
+        "mcp:iwe": {
+          "default": "allow",
+        },
         "terminal": {
           "always_allow": [
             {
@@ -27,17 +62,61 @@
         },
       },
     },
-    "profiles": {},
-    "default_profile": "write",
+    "profiles": {
+      "digital-garden": {
+        "default_model": {
+          "provider": "google",
+          "model": "gemini-3.1-flash-lite",
+          "enable_thinking": true,
+          "effort": "minimal",
+        },
+        "name": "Digital Garden",
+        "tools": {
+          "write_file": true,
+          "list_directory": true,
+          "read_file": true,
+          "diagnostics": false,
+          "edit_file": true,
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {
+          "iwe": {
+            "tools": {
+              "iwe_update": true,
+              "iwe_tree": true,
+              "iwe_stats": true,
+              "iwe_squash": true,
+              "iwe_retrieve": true,
+              "iwe_rename": true,
+              "iwe_normalize": true,
+              "iwe_find": true,
+              "iwe_inline": true,
+              "iwe_extract": true,
+              "iwe_delete": true,
+              "iwe_create": true,
+              "iwe_attach": true,
+            },
+          },
+          "DuckDuckGo": {
+            "tools": {
+              "fetch_content": false,
+              "search": true,
+            },
+          },
+        },
+      },
+    },
+    "default_profile": "digital-garden",
     "default_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-6-latest",
-      "enable_thinking": false,
+      "effort": "minimal",
+      "provider": "google",
+      "model": "gemini-3.1-flash-lite",
+      "enable_thinking": true,
     },
     "favorite_models": [],
     "model_parameters": [],
   },
   "ui_font_size": 16,
   "buffer_font_size": 15,
-  "theme": "Gruvbox Dark Hard",
+  "theme": "Fleet Dark Purple",
 }
